@@ -12,7 +12,7 @@
     <button id="sto">Старт</button>
 
 
-    <audio id="audio" src="/1.mp3" controls></audio>
+    <audio id="audio" src="./1.mp3" controls></audio>
     <script>
         const sta = document.getElementById("sta")
         const sto = document.getElementById("sto")
@@ -88,7 +88,7 @@
             var x = document.getElementById("audio").ended
             let trackTime = audio.currentTime
             if (x === true) {
-                audio.src = "/" + random + ".mp3"
+                audio.src = "./" + random + ".mp3"
                 audio.play()
             }
         }
@@ -96,7 +96,7 @@
 
         function start() {
             onoff = true
-            audio.src = "/0.mp3";
+            audio.src = "./0.mp3";
             audio.play();
             setTimeout(int = setInterval(currentTime, 5000), 8000)
             console.log("function start")
@@ -105,7 +105,7 @@
 
         function stop() {
             onoff = false
-            audio.src = "/0.mp3";
+            audio.src = "./0.mp3";
             audio.play();
             clearInterval(int)
             console.log("function stop")
