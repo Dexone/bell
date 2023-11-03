@@ -8,6 +8,7 @@
 </head>
 
 <body>
+f
     <div
         style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
         <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./music/1.mp3" controls></audio>
@@ -69,6 +70,9 @@
                                                     else
                                                         if (time[0] == 13 && time[1] == 15 && onoff == false) //Пара 3 Урок 2 конец урока старт перемена
                                                             start()
+                                                        else
+                                                            if (time[0] == 12 && time[1] == 3 && onoff == false) //Пара 3 Урок 2 конец урока старт перемена
+                                                                start()
         }
         setInterval(date, 10000)
 
