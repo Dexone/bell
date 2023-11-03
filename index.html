@@ -14,14 +14,12 @@
         </div>
         <div id="clock" style="font-size: 41px;margin-left: 250px">OFF</div>
     </div>
-    
+
     <div style="width: 300px; height: 400px; margin-left: auto; margin-right: auto;">
         <img src="./raspisanie.png">
         chrome://settings/content/sound
     </div>
     <script>
-
-
         const audio = document.getElementById("audio")
         let time = []
         let onoff = false
@@ -33,11 +31,7 @@
             time.push(hours, minutes)
             console.log("function date")
             document.querySelector("#clock").innerHTML = time[0] + ":" + time[1]
-        }
-        setInterval(date, 10000)
 
-
-        function zvonki() {
             if (time[0] == 8 && time[1] == 10 && onoff == true) //Пара 1 Урок 1 начало урока стоп перемена 
                 stop()
             else
@@ -76,7 +70,7 @@
                                                         if (time[0] == 13 && time[1] == 15 && onoff == false) //Пара 3 Урок 2 конец урока старт перемена
                                                             start()
         }
-        setInterval(zvonki, 10000)
+        setInterval(date, 10000)
 
         function currentTime() { //включение рандомной песни
             audio.volume = 0.05
@@ -98,7 +92,6 @@
             setTimeout(int = setInterval(currentTime, 5000), 8000)
             console.log("function start")
         }
-
 
         function stop() {
             audio.volume = 1
