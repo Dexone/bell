@@ -8,16 +8,16 @@
 </head>
 
 <body>
-    chrome://settings/content/sound
-
-
-
-
     <div
         style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
-        <div style="margin-left: 150px"><audio id="audio" src="./1.mp3" controls></audio></div>
-        <div id="clock" style="font-size: 41px;margin-left: 220px">OFF</div>
-        <div style="margin-left: 220px;"><button id="run">Старт</button> <button id="unrun">Стоп</button></div>
+        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./1.mp3" controls></audio></div>
+        <div id="clock" style="font-size: 41px;margin-left: 250px">OFF</div>
+        <div style="margin-left: 195px;"><button id="run" style="width: 100px;">Старт</button> <button
+                style="width: 100px;" id="unrun">Стоп</button></div>
+    </div>
+    <div style="width: 300px; height: 400px; margin-left: auto; margin-right: auto;">
+        <img src="./raspisanie.png">
+        chrome://settings/content/sound
     </div>
     <script>
         const run = document.getElementById("run")
@@ -100,11 +100,11 @@
 
         function currentTime() {
             audio.volume = 0.05
-            let random = Math.floor(Math.random() * (6 - 1 + 1)) + 1
+            let random = Math.floor(Math.random() * (100 - 1 + 1)) + 1
             var x = document.getElementById("audio").ended
             let trackTime = audio.currentTime
             if (x === true) {
-                audio.src = "./" + random + ".mp3"
+                audio.src = "./music/" + random + ".mp3"
                 audio.play()
             }
         }
