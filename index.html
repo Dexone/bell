@@ -8,20 +8,33 @@
 </head>
 
 <body>
-
     <div
         style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
-        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./music/1.mp3" controls></audio>
-        </div>
-        <div id="clock" style="font-size: 41px;margin-left: 250px">Wait...</div>
+        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./music/1.mp3" controls></audio></div>
+        <div id="clock" style="font-size: 41px;margin-left: 250px">OFF</div>
+        <div style="margin-left: 195px;"><button id="run" style="width: 100px;">Старт</button> <button
+                style="width: 100px;" id="unrun">Стоп</button></div>
     </div>
-
     <div style="width: 300px; height: 400px; margin-left: auto; margin-right: auto;">
         <img src="./raspisanie.png">
         chrome://settings/content/sound
-        тест 2
     </div>
     <script>
+        const run = document.getElementById("run")
+        const unrun = document.getElementById("unrun")
+        run.onclick = function run() {
+            dat = setInterval(date, 10000)
+            zvo = setInterval(zvonki, 10000)
+            document.querySelector("#clock").innerHTML = "Wait..."
+
+        }
+
+        unrun.onclick = function unrun() {
+            dat = clearInterval(dat)
+            zvo = clearInterval(zvo)
+            document.querySelector("#clock").innerHTML = "OFF"
+        }
+
         const audio = document.getElementById("audio")
         let time = []
         let onoff = false
@@ -33,7 +46,11 @@
             time.push(hours, minutes)
             console.log("function date")
             document.querySelector("#clock").innerHTML = time[0] + ":" + time[1]
+        }
 
+
+
+        function zvonki() {
             if (time[0] == 8 && time[1] == 10 && onoff == true) //Пара 1 Урок 1 начало урока стоп перемена 
                 stop()
             else
@@ -71,11 +88,8 @@
                                                     else
                                                         if (time[0] == 13 && time[1] == 15 && onoff == false) //Пара 3 Урок 2 конец урока старт перемена
                                                             start()
-                                                        else
-                                                            if (time[0] == 12 && time[1] == 15 && onoff == false) //Пара 3 Урок 2 конец урока старт перемена
-                                                                start()
         }
-        setInterval(date, 10000)
+
 
         function currentTime() { //включение рандомной песни
             audio.volume = 0.05
@@ -97,6 +111,7 @@
             setTimeout(int = setInterval(currentTime, 5000), 8000)
             console.log("function start")
         }
+
 
         function stop() {
             audio.volume = 1
