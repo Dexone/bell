@@ -8,82 +8,98 @@
 </head>
 
 <body>
-    <button id="sta">Старт</button>
-    <button id="sto">Старт</button>
+    chrome://settings/content/sound
 
 
-    <audio id="audio" src="./1.mp3" controls></audio>
+
+
+    <div
+        style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
+        <div style="margin-left: 150px"><audio id="audio" src="./1.mp3" controls></audio></div>
+        <div id="clock" style="font-size: 41px;margin-left: 220px">OFF</div>
+        <div style="margin-left: 220px;"><button id="run">Старт</button> <button id="unrun">Стоп</button></div>
+    </div>
     <script>
-        const sta = document.getElementById("sta")
-        const sto = document.getElementById("sto")
+        const run = document.getElementById("run")
+        const unrun = document.getElementById("unrun")
+        run.onclick = function run() {
+            dat = setInterval(date, 10000)
+            zvo = setInterval(zvonki, 10000)
+            document.querySelector("#clock").innerHTML = "Wait..."
 
+        }
+
+        unrun.onclick = function unrun() {
+            dat = clearInterval(dat)
+            zvo = clearInterval(zvo)
+            document.querySelector("#clock").innerHTML = "OFF"
+        }
 
         const audio = document.getElementById("audio")
         let time = []
         let onoff = false
         function date() {
-
-
             const date = new Date()
             const hours = date.getHours()
             const minutes = date.getMinutes()
             time.length = 0
             time.push(hours, minutes)
-
-
+            console.log("function date")
+            document.querySelector("#clock").innerHTML = time[0] + ":" + time[1]
         }
-        setInterval(date, 10000)
+
 
 
         function zvonki() {
-            if (time[0] == 8 && time[1] == 10) //Пара 1 Урок 1 начало урока стоп перемена 
+            if (time[0] == 8 && time[1] == 10 && onoff == true) //Пара 1 Урок 1 начало урока стоп перемена 
                 stop()
             else
                 if (time[0] == 8 && time[1] == 55 && onoff == false)//Пара 1 Урок 1 конец урока старт перемена 
                     start()
                 else
-                    if (time[0] == 9 && time[1] == 0) //Пара 1 Урок 2 начало урока стоп перемена 
+                    if (time[0] == 9 && time[1] == 0 && onoff == true) //Пара 1 Урок 2 начало урока стоп перемена 
                         stop()
                     else
                         if (time[0] == 9 && time[1] == 45 && onoff == false) //Пара 1 Урок 2 конец урока старт перемена
                             start()
                         else
 
-                            if (time[0] == 9 && time[1] == 55) //Пара 2 Урок 1 начало урока стоп перемена 
+                            if (time[0] == 9 && time[1] == 55 && onoff == true) //Пара 2 Урок 1 начало урока стоп перемена 
                                 stop()
                             else
                                 if (time[0] == 10 && time[1] == 40 && onoff == false)//Пара 2 Урок 1 конец урока старт перемена 
                                     start()
                                 else
-                                    if (time[0] == 10 && time[1] == 45) //Пара 2 Урок 2 начало урока стоп перемена 
+                                    if (time[0] == 10 && time[1] == 45 && onoff == true) //Пара 2 Урок 2 начало урока стоп перемена 
                                         stop()
                                     else
                                         if (time[0] == 11 && time[1] == 30 && onoff == false) //Пара 2 Урок 2 конец урока старт перемена
                                             start()
                                         else
 
-                                            if (time[0] == 11 && time[1] == 40) //Пара 3 Урок 1 начало урока стоп перемена 
+                                            if (time[0] == 11 && time[1] == 40 && onoff == true) //Пара 3 Урок 1 начало урока стоп перемена 
                                                 stop()
                                             else
                                                 if (time[0] == 12 && time[1] == 25 && onoff == false)//Пара 3 Урок 1 конец урока старт перемена 
                                                     start()
                                                 else
-                                                    if (time[0] == 12 && time[1] == 30) //Пара 3 Урок 2 начало урока стоп перемена 
+                                                    if (time[0] == 12 && time[1] == 30 && onoff == true) //Пара 3 Урок 2 начало урока стоп перемена 
                                                         stop()
                                                     else
                                                         if (time[0] == 13 && time[1] == 15 && onoff == false) //Пара 3 Урок 2 конец урока старт перемена
                                                             start()
 
                                                         else
-                                                            if (time[0] == 15 && time[1] == 41 && onoff == false) //тест старт перемена
+                                                            if (time[0] == 9 && time[1] == 30 && onoff == false) //тест старт перемена
                                                                 start()
                                                             else
-                                                                if (time[0] == 15 && time[1] == 42 && onoff == true) //тест конец пермена
+                                                                if (time[0] == 9 && time[1] == 31 && onoff == true) //тест конец пермена
                                                                     stop()
         }
-        setInterval(zvonki, 10000)
+
 
         function currentTime() {
+            audio.volume = 0.05
             let random = Math.floor(Math.random() * (6 - 1 + 1)) + 1
             var x = document.getElementById("audio").ended
             let trackTime = audio.currentTime
@@ -95,6 +111,7 @@
 
 
         function start() {
+            audio.volume = 1
             onoff = true
             audio.src = "./0.mp3";
             audio.play();
@@ -104,6 +121,7 @@
 
 
         function stop() {
+            audio.volume = 1
             onoff = false
             audio.src = "./0.mp3";
             audio.play();
