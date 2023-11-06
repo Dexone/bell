@@ -10,14 +10,14 @@
 <body>
     <div
         style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
-        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./music/1.mp3" controls></audio></div>
+        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./music/1.mp3" controls></audio>
+        </div>
         <div id="clock" style="font-size: 41px;margin-left: 250px">OFF</div>
         <div style="margin-left: 195px;"><button id="run" style="width: 100px;">Старт</button> <button
                 style="width: 100px;" id="unrun">Стоп</button></div>
     </div>
     <div style="width: 300px; height: 400px; margin-left: auto; margin-right: auto;">
         <img src="./raspisanie.png">
-        chrome://settings/content/sound
     </div>
     <script>
         const run = document.getElementById("run")
@@ -26,7 +26,6 @@
             dat = setInterval(date, 10000)
             zvo = setInterval(zvonki, 10000)
             document.querySelector("#clock").innerHTML = "Wait..."
-
         }
 
         unrun.onclick = function unrun() {
@@ -47,8 +46,6 @@
             console.log("function date")
             document.querySelector("#clock").innerHTML = time[0] + ":" + time[1]
         }
-
-
 
         function zvonki() {
             if (time[0] == 8 && time[1] == 10 && onoff == true) //Пара 1 Урок 1 начало урока стоп перемена 
@@ -90,7 +87,6 @@
                                                             start()
         }
 
-
         function currentTime() { //включение рандомной песни
             audio.volume = 0.05
             let random = Math.floor(Math.random() * (43 - 1 + 1)) + 1
@@ -102,22 +98,20 @@
             }
         }
 
-
         function start() {
             audio.volume = 1
             onoff = true
             audio.src = "./0.mp3";
-            audio.play();
+            audio.play()
             setTimeout(int = setInterval(currentTime, 5000), 8000)
             console.log("function start")
         }
-
 
         function stop() {
             audio.volume = 1
             onoff = false
             audio.src = "./0.mp3";
-            audio.play();
+            audio.play()
             clearInterval(int)
             console.log("function stop")
         }
