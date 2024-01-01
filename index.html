@@ -14,7 +14,7 @@
         </div>
 
         <table border="1" align="center">
-релиз42
+            релиз last
             <tr>
                 <td>08:45</td>
                 <td>09:35</td>
@@ -31,12 +31,11 @@
     </div>
 
     <script>
-        window.onload = function run() {
-            dat = setInterval(date, 10000)
-            zvo = setInterval(zvonki, 10000)
-        }
 
-        let onoff = false
+        setInterval(date, 10000)
+        setInterval(zvonki, 10000)
+
+        let onoff = true
         const audio = document.getElementById("audio")
         let time = []
         function date() {
@@ -48,23 +47,23 @@
         }
 
         function zvonki() {
-            if (time[0] == 20 && time[1] == 42 && onoff == false) //Пара 1  начало урока стоп перемена 
+            if (time[0] == 21 && time[1] == 12 && onoff == true) //Пара 1  начало урока стоп перемена 
                 stop()
             else
-                if (time[0] == 20 && time[1] == 43 && onoff == false)//Пара 1 конец урока старт перемена 
+                if (time[0] == 21 && time[1] == 13 && onoff == false)//Пара 1 конец урока старт перемена 
                     start()
                 else
-                    if (time[0] == 20 && time[1] == 44 && onoff == true) //Пара 2 начало урока стоп перемена 
+                    if (time[0] == 21 && time[1] == 14 && onoff == true) //Пара 2 начало урока стоп перемена 
                         stop()
                     else
-                        if (time[0] == 20 && time[1] == 45 && onoff == false) //Пара 2 конец урока старт перемена
+                        if (time[0] == 21 && time[1] == 15 && onoff == false) //Пара 2 конец урока старт перемена
                             start()
                         else
 
-                            if (time[0] == 20 && time[1] == 46 && onoff == true) //Пара 3 начало урока стоп перемена 
+                            if (time[0] == 21 && time[1] == 16 && onoff == true) //Пара 3 начало урока стоп перемена 
                                 stop()
                             else
-                                if (time[0] == 20 && time[1] == 47 && onoff == false)//Пара 3 конец урока старт перемена 
+                                if (time[0] == 21 && time[1] == 17 && onoff == false)//Пара 3 конец урока старт перемена 
                                     start()
         }
 
@@ -93,7 +92,6 @@
             audio.play()
             clearInterval(int)
         }
-
     </script>
 </body>
 
