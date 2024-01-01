@@ -8,26 +8,9 @@
 </head>
 
 <body>
-    <div
-        style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
-        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./0.mp3" controls></audio>
-        </div>
 
-        <table border="1" align="center">
-            релиз last
-            <tr>
-                <td>08:45</td>
-                <td>09:35</td>
-            </tr>
-            <tr>
-                <td>09:45</td>
-                <td>11:20</td>
-            </tr>
-            <tr>
-                <td>11:30</td>
-                <td>13:05</td>
-            </tr>
-        </table>
+    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio" src="./0.mp3"
+            controls></audio>
     </div>
 
     <script>
@@ -47,23 +30,23 @@
         }
 
         function zvonki() {
-            if (time[0] == 21 && time[1] == 12 && onoff == true) //Пара 1  начало урока стоп перемена 
+            if (time[0] == 8 && time[1] == 45 && onoff == true) //Пара 1  начало урока стоп перемена 
                 stop()
             else
-                if (time[0] == 21 && time[1] == 13 && onoff == false)//Пара 1 конец урока старт перемена 
+                if (time[0] == 9 && time[1] == 35 && onoff == false)//Пара 1 конец урока старт перемена 
                     start()
                 else
-                    if (time[0] == 21 && time[1] == 14 && onoff == true) //Пара 2 начало урока стоп перемена 
+                    if (time[0] == 9 && time[1] == 45 && onoff == true) //Пара 2 начало урока стоп перемена 
                         stop()
                     else
-                        if (time[0] == 21 && time[1] == 15 && onoff == false) //Пара 2 конец урока старт перемена
+                        if (time[0] == 11 && time[1] == 20 && onoff == false) //Пара 2 конец урока старт перемена
                             start()
                         else
 
-                            if (time[0] == 21 && time[1] == 16 && onoff == true) //Пара 3 начало урока стоп перемена 
+                            if (time[0] == 11 && time[1] == 30 && onoff == true) //Пара 3 начало урока стоп перемена 
                                 stop()
                             else
-                                if (time[0] == 21 && time[1] == 17 && onoff == false)//Пара 3 конец урока старт перемена 
+                                if (time[0] == 13 && time[1] == 5 && onoff == false)//Пара 3 конец урока старт перемена 
                                     start()
         }
 
