@@ -10,14 +10,11 @@
 <body>
     <div
         style="width: 600px; height: 300px; background-color: rgb(207, 207, 207); margin-left: auto; margin-right: auto;">
-        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./music/1.mp3" controls></audio>
+        <div style="margin-left: 150px; padding-top: 50px;"><audio id="audio" src="./0.mp3" controls></audio>
         </div>
-        <div id="clock" style="font-size: 41px;margin-left: 250px">OFF</div>
-        <div style="margin-left: 195px;"><button id="run" style="width: 100px;">Старт</button> <button
-                style="width: 100px; margin-bottom: 10px;" id="unrun">Стоп</button></div>
 
         <table border="1" align="center">
-            тест 20
+релиз
             <tr>
                 <td>08:45</td>
                 <td>09:35</td>
@@ -34,81 +31,65 @@
     </div>
 
     <script>
-        const run = document.getElementById("run")
-        const unrun = document.getElementById("unrun")
-        run.onclick = function run() {
+        window.onload = function run() {
             dat = setInterval(date, 10000)
             zvo = setInterval(zvonki, 10000)
-            document.querySelector("#clock").innerHTML = "Wait..."
         }
 
-        unrun.onclick = function unrun() {
-            dat = clearInterval(dat)
-            zvo = clearInterval(zvo)
-            document.querySelector("#clock").innerHTML = "OFF"
-        }
 
         const audio = document.getElementById("audio")
         let time = []
-        let onoff = false
         function date() {
             const date = new Date()
             const hours = date.getHours()
             const minutes = date.getMinutes()
             time.length = 0
             time.push(hours, minutes)
-            console.log("function date")
-            document.querySelector("#clock").innerHTML = time[0] + ":" + time[1]
         }
 
         function zvonki() {
-            if (time[0] == 19 && time[1] == 48 && onoff == true) //Пара 1  начало урока стоп перемена 
+            if (time[0] == 20 && time[1] == 30) //Пара 1  начало урока стоп перемена 
                 stop()
             else
-                if (time[0] == 20 && onoff == false)//Пара 1 конец урока старт перемена 
+                if (time[0] == 20 && time[1] == 31)//Пара 1 конец урока старт перемена 
                     start()
                 else
-                    if (time[0] == 19 && time[1] == 50 && onoff == true) //Пара 2 начало урока стоп перемена 
+                    if (time[0] == 20 && time[1] == 32) //Пара 2 начало урока стоп перемена 
                         stop()
                     else
-                        if (time[0] == 19 && time[1] == 51 && onoff == false) //Пара 2 конец урока старт перемена
+                        if (time[0] == 20 && time[1] == 33) //Пара 2 конец урока старт перемена
                             start()
                         else
 
-                            if (time[0] == 19 && time[1] == 52 && onoff == true) //Пара 3 начало урока стоп перемена 
+                            if (time[0] == 20 && time[1] == 34) //Пара 3 начало урока стоп перемена 
                                 stop()
                             else
-                                if (time[0] == 19 && time[1] == 53 && onoff == false)//Пара 3 конец урока старт перемена 
+                                if (time[0] == 20 && time[1] == 35)//Пара 3 конец урока старт перемена 
                                     start()
         }
 
         function currentTime() { //включение рандомной песни
-            audio.volume = 0.05
-            let random = Math.floor(Math.random() * (43 - 1 + 1)) + 1
             var x = document.getElementById("audio").ended
-            let trackTime = audio.currentTime
             if (x === true) {
+                let random = Math.floor(Math.random() * (43 - 1 + 1)) + 1
+                audio.volume = 0.05
                 audio.src = "./music/" + random + ".mp3"
                 audio.play()
             }
         }
 
-        function start() {
+        function start() {  //старт перемены
             audio.volume = 1
-            onoff = true
             audio.src = "./0.mp3";
             audio.play()
             setTimeout(int = setInterval(currentTime, 5000), 8000)
-            console.log("function start")
         }
 
-        function stop() {
+        function stop() {  //конец перемены
             audio.volume = 1
-            onoff = false
             audio.src = "./0.mp3";
             audio.play()
             clearInterval(int)
-            console.log("function stop")
         }
 
     </script>
