@@ -9,50 +9,46 @@
 
 <body>
 
-    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio" src="./0.mp3"
-            controls></audio>
-            06.02.2024
+    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
+            src="./ready.mp3" controls></audio>
     </div>
-
     <script>
 
-        setInterval(date, 10000)
-        setInterval(zvonki, 10000)
 
-        let onoff = true
+
+        setTimeout(setInterval(date, 60000), 8000)
+
         const audio = document.getElementById("audio")
-        let time = []
+
+        let time = 0
         function date() {
             const date = new Date()
             const hours = date.getHours()
             const minutes = date.getMinutes()
-            time.length = 0
-            time.push(hours, minutes)
-        }
-
-        function zvonki() {
-            if (time[0] == 8 && time[1] == 55 && onoff == true)
-                stop()
+            time = hours + "" + minutes
+            if (time == "855" || time == "950" || time == "1055")
+                urok()
             else
-                if (time[0] == 9 && time[1] == 40 && onoff == true)
-                    start()
-                else
-                    if (time[0] == 9 && time[1] == 50 && onoff == true)
-                        stop()
-                    else
-                        if (time[0] == 10 && time[1] == 35 && onoff == true)
-                            start()
-                        else
-                            if (time[0] == 10 && time[1] == 55 && onoff == true)
-                                stop()
-                            else
-                                if (time[0] == 11 && time[1] == 40 && onoff == true)
-                                    start()
+                if (time == "940" || time == "1035" || time == "1140")
+                    peremena()
         }
 
 
+        function urok() {
+            audio.volume = 1
+            audio.src = "./0.mp3";
+            audio.play()
+            clearInterval(int)
+        }
 
-        function currentTime() { //включение рандомной песни
+        function peremena() {
+            audio.volume = 1
+            audio.src = "./0.mp3";
+            audio.play()
+            setTimeout(int = setInterval(currentTime, 5000), 8000)
+        }
+
+        function currentTime() {
             var x = document.getElementById("audio").ended
             if (x === true) {
                 let random = Math.floor(Math.random() * (43 - 1 + 1)) + 1
@@ -60,24 +56,6 @@
                 audio.src = "./music/" + random + ".mp3"
                 audio.play()
             }
-        }
-
-        function start() {  //старт перемены
-            onoff = false
-            audio.volume = 1
-            audio.src = "./0.mp3";
-            audio.play()
-            setTimeout(int = setInterval(currentTime, 5000), 8000)
-            setTimeout(onoff = true, 61000);
-        }
-
-        function stop() {  //конец перемены
-            onoff = false
-            audio.volume = 1
-            audio.src = "./0.mp3";
-            audio.play()
-            clearInterval(int)
-            setTimeout(onoff = true, 61000);
         }
     </script>
 </body>
