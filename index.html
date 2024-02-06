@@ -33,19 +33,19 @@
             if (time[0] == 8 && time[1] == 55 && onoff == true)
                 stop()
             else
-                if (time[0] == 9 && time[1] == 40 && onoff == false)
+                if (time[0] == 9 && time[1] == 40 && onoff == true)
                     start()
                 else
                     if (time[0] == 9 && time[1] == 50 && onoff == true)
                         stop()
                     else
-                        if (time[0] == 10 && time[1] == 35 && onoff == false)
+                        if (time[0] == 10 && time[1] == 35 && onoff == true)
                             start()
                         else
                             if (time[0] == 10 && time[1] == 55 && onoff == true)
                                 stop()
                             else
-                                if (time[0] == 11 && time[1] == 40 && onoff == false)
+                                if (time[0] == 11 && time[1] == 40 && onoff == true)
                                     start()
         }
 
@@ -62,11 +62,12 @@
         }
 
         function start() {  //старт перемены
-            onoff = true
+            onoff = false
             audio.volume = 1
             audio.src = "./0.mp3";
             audio.play()
             setTimeout(int = setInterval(currentTime, 5000), 8000)
+            setTimeout(onoff = true, 61000);
         }
 
         function stop() {  //конец перемены
@@ -75,6 +76,7 @@
             audio.src = "./0.mp3";
             audio.play()
             clearInterval(int)
+            setTimeout(onoff = true, 61000);
         }
     </script>
 </body>
