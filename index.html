@@ -11,7 +11,7 @@
 
     <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
             src="./ready.mp3" controls></audio>
-            07
+            07 v2
     </div>
     <script>
 
@@ -26,10 +26,10 @@
             const hours = date.getHours()
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
-            if (time == "855" || time == "950" || time == "1055")
+            if (time === "855" || time === "950" || time === "1055")
                 urok()
             else
-                if (time == "940" || time == "1035" || time == "1140")
+                if (time === "940" || time === "1035" || time === "1140")
                     peremena()
         }
 
