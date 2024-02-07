@@ -11,21 +11,21 @@
 
     <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
             src="./ready.mp3" controls></audio>
+            07
     </div>
     <script>
 
 
 
-        setTimeout(setInterval(date, 60000), 8000)
+        setInterval(date, 60000)
 
         const audio = document.getElementById("audio")
 
-        let time = 0
         function date() {
             const date = new Date()
             const hours = date.getHours()
             const minutes = date.getMinutes()
-            time = hours + "" + minutes
+            let time = hours + "" + minutes
             if (time == "855" || time == "950" || time == "1055")
                 urok()
             else
