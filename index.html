@@ -11,26 +11,40 @@
 
     <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
             src="./ready.mp3" controls></audio>
-            07 v2
+        07 v2
     </div>
     <script>
 
 
+        setTimeout(() => {
+            setInterval(date, 1000)
+        }, 5000);
 
-        setInterval(date, 60000)
-
+        let int
+        let alarm = 0
         const audio = document.getElementById("audio")
-
         function date() {
             const date = new Date()
             const hours = date.getHours()
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
-            if (time === "855" || time === "950" || time === "1055")
+            console.log(alarm)
+            if (alarm === 0 && (time === "855" || time === "950" || time === "1055")) {
+                alarm = 1
                 urok()
+                setTimeout(() => {
+                    alarm = 0 //не меняется на 1
+                }, 61000);
+            }
             else
-                if (time === "940" || time === "1035" || time === "1140")
+                if (alarm === 0 && (time === "940" || time === "1035" || time === "1140")) {
+                    alarm = 1
                     peremena()
+                    setTimeout(() => {
+                        alarm = 0
+                    }, 61000);
+                }
+
         }
 
 
@@ -39,13 +53,15 @@
             audio.src = "./0.mp3";
             audio.play()
             clearInterval(int)
+            console.log("furok")
         }
 
         function peremena() {
             audio.volume = 1
             audio.src = "./0.mp3";
             audio.play()
-            setTimeout(int = setInterval(currentTime, 5000), 8000)
+            int = setInterval(currentTime, 5000)
+            console.log("fperemena")
         }
 
         function currentTime() {
@@ -56,7 +72,11 @@
                 audio.src = "./music/" + random + ".mp3"
                 audio.play()
             }
+            console.log("fcurrenttime")
         }
+
+
+
     </script>
 </body>
 
