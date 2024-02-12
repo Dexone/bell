@@ -9,45 +9,34 @@
 
 <body>
 
-    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio" src="./0.mp3"
-            controls></audio>
+    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
+            src="./ready.mp3" controls></audio>
     </div>
-    v2
     <script>
 
 
-        setTimeout(() => {
-            setInterval(date, 1000)
-        }, 5000);
+
+        setInterval(date, 60000)
 
         let int
-        let alarm = 0
         const audio = document.getElementById("audio")
         function date() {
             const date = new Date()
             const hours = date.getHours()
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
-            if (alarm === 0 && (time === "855" || time === "950" || time === "1055" || time === "912")) {
-                alarm = 1
+            if (time === "855" || time === "950" || time === "1055") {
                 audio.volume = 1
                 audio.src = "./0.mp3";
                 audio.play()
                 clearInterval(int)
-                setTimeout(() => {
-                    alarm = 0
-                }, 65000);
             }
             else
-                if (alarm === 0 && (time === "940" || time === "1035" || time === "1140" || time === "914")) {
-                    alarm = 1
+                if (time === "940" || time === "1035" || time === "1140") {
                     audio.volume = 1
                     audio.src = "./0.mp3";
                     audio.play()
                     int = setInterval(currentTime, 5000)
-                    setTimeout(() => {
-                        alarm = 0
-                    }, 65000);
                 }
 
         }
