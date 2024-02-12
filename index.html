@@ -12,7 +12,7 @@
     <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio" src="./0.mp3"
             controls></audio>
     </div>
-    v
+    v2
     <script>
 
 
@@ -28,40 +28,28 @@
             const hours = date.getHours()
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
-            console.log(alarm)
-            if (alarm === 0 && (time === "855" || time === "950" || time === "1055" || time === "905")) {
+            if (alarm === 0 && (time === "855" || time === "950" || time === "1055" || time === "912")) {
                 alarm = 1
-                urok()
+                audio.volume = 1
+                audio.src = "./0.mp3";
+                audio.play()
+                clearInterval(int)
                 setTimeout(() => {
-                    alarm = 0 //не меняется на 1
-                }, 61000);
+                    alarm = 0
+                }, 65000);
             }
             else
-                if (alarm === 0 && (time === "940" || time === "1035" || time === "1140" || time === "906")) {
+                if (alarm === 0 && (time === "940" || time === "1035" || time === "1140" || time === "914")) {
                     alarm = 1
-                    peremena()
+                    audio.volume = 1
+                    audio.src = "./0.mp3";
+                    audio.play()
+                    int = setInterval(currentTime, 5000)
                     setTimeout(() => {
                         alarm = 0
-                    }, 61000);
+                    }, 65000);
                 }
 
-        }
-
-
-        function urok() {
-            audio.volume = 1
-            audio.src = "./0.mp3";
-            audio.play()
-            clearInterval(int)
-            console.log("furok")
-        }
-
-        function peremena() {
-            audio.volume = 1
-            audio.src = "./0.mp3";
-            audio.play()
-            int = setInterval(currentTime, 5000)
-            console.log("fperemena")
         }
 
         function currentTime() {
@@ -72,10 +60,7 @@
                 audio.src = "./music/" + random + ".mp3"
                 audio.play()
             }
-            console.log("fcurrenttime")
         }
-
-
 
     </script>
 </body>
