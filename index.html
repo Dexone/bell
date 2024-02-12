@@ -9,9 +9,10 @@
 
 <body>
 
-    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
-            src="./ready.mp3" controls></audio>
+    <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio" src="./0.mp3"
+            controls></audio>
     </div>
+    v
     <script>
 
 
@@ -28,7 +29,7 @@
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
             console.log(alarm)
-            if (alarm === 0 && (time === "855" || time === "950" || time === "1055")) {
+            if (alarm === 0 && (time === "855" || time === "950" || time === "1055" || time === "905")) {
                 alarm = 1
                 urok()
                 setTimeout(() => {
@@ -36,7 +37,7 @@
                 }, 61000);
             }
             else
-                if (alarm === 0 && (time === "940" || time === "1035" || time === "1140")) {
+                if (alarm === 0 && (time === "940" || time === "1035" || time === "1140" || time === "906")) {
                     alarm = 1
                     peremena()
                     setTimeout(() => {
