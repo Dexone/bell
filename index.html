@@ -26,23 +26,24 @@
             const hours = date.getHours()
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
-            if (time === "855" || time === "950" || time === "1055" || time === "935") {
+            if (time === "855" || time === "950" || time === "1055" || time === "939") {
                 audio.volume = 1
                 audio.src = "https://dexone.github.io/test/music/0.mp3";
                 audio.play()
                 clearInterval(int)
             }
             else
-                if (time === "940" || time === "1035" || time === "1140" || time === "933") {
+                if (time === "940" || time === "1035" || time === "1140" || time === "937") {
                     audio.volume = 1
                     audio.src = "https://dexone.github.io/test/music/0.mp3";
                     audio.play()
-                    int = setInterval(currentTime(), 5000)
+                    int = setInterval(currentTime, 5000)
                 }
 
         }
 
         function currentTime() {
+            console.log("currenttime")
             var x = document.getElementById("audio").ended
             if (x === true) {
                 let random = Math.floor(Math.random() * (43 - 1 + 1)) + 1
