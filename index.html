@@ -11,6 +11,7 @@
 
     <div style="margin-left: auto; margin-right: auto; width: 300px; padding-top: 50px;"><audio id="audio"
             src="https://dexone.github.io/test/music/0.mp3" controls></audio>
+            v2
     </div>
     <script>
 
@@ -25,14 +26,14 @@
             const hours = date.getHours()
             const minutes = date.getMinutes()
             let time = hours + "" + minutes
-            if (time === "855" || time === "950" || time === "1055" || time === "934") {
+            if (time === "855" || time === "950" || time === "1055" || time === "935") {
                 audio.volume = 1
                 audio.src = "https://dexone.github.io/test/music/0.mp3";
                 audio.play()
                 clearInterval(int)
             }
             else
-                if (time === "940" || time === "1035" || time === "1140" || time === "932") {
+                if (time === "940" || time === "1035" || time === "1140" || time === "933") {
                     audio.volume = 1
                     audio.src = "https://dexone.github.io/test/music/0.mp3";
                     audio.play()
